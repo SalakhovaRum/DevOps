@@ -6,14 +6,15 @@
 ```
 После чего перешли в root, посмотрела по какому пути находится созданный текстовый файл 
 ```
-![1.jpg](..%2F..%2F..%2FDownloads%2F1.jpg)
+![img_8.png](img_8.png)
+
 
 
 
 ```
 Запускаем скрипт
 ```
-![2.jpg](..%2F..%2F..%2FDownloads%2F2.jpg)![img_3.png](img_3.png)![img_4.png](img_4.png)![img_5.png](img_5.png)
+![img_9.png](img_9.png)![2.jpg](..%2F..%2F..%2FDownloads%2F2.jpg)![img_3.png](img_3.png)![img_4.png](img_4.png)![img_5.png](img_5.png)
 
 
 
