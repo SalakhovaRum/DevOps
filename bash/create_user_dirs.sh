@@ -27,9 +27,15 @@ for user in $(cut -d: -f1 /etc/passwd); do
         mkdir -p "$user_dir"
     fi
 
+    # Checking the existence of the user's group
+        if grep -q "^${user}:" /etc/group; then
+            group="$user"
+        else
+            group=""
+        fi
     # Setting permissions for the directory (755) and the owner (corresponding user)
     chmod 755 "$user_dir"
-    chown "$user:$user" "$user_dir"
+    chown "$user:group" "$user_dir"
 
     # Writing logs to stdout and file
     echo "Directory for user $user created: $user_dir"
