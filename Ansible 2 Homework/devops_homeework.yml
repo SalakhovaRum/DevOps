@@ -1,0 +1,40 @@
+- name: DevOps Homework
+  hosts: 10.0.2.15
+  become: true
+  vars:
+    ansible_become_pass: 030703
+
+  tasks:
+    - name: Create a new user
+      user:
+        name: Ruzalina
+        state: present
+        createhome: yes
+
+    - name: Authorize SSH access for the user
+      authorized_key:
+        user: your_username
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
+
+    - name: Disable password authentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication no'
+        state: present
+      notify: Restart SSH
+
+    - name: Create a directory in /opt/
+      file:
+        path: /opt/Ruzalina
+        state: directory
+        owner: rumiya
+        group: rumiya
+        mode: '0755'
+
+  handlers:
+    - name: Restart SSH
+      service:
+        name: sshd
+        state: restarted

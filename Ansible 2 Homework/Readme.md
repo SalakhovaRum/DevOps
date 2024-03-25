@@ -15,7 +15,7 @@
 
 ![img.png](img.png)
 
-***Создала файл с расширением 'devops_homework.yaml', написала туда следующий playbook***
+***Создала файл с расширением 'devops_homework.yml', написала туда следующий playbook***
 ![img_1.png](img_1.png)![img_10.png](img_10.png)![img_11.png](img_11.png)
 
 
