@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  webserver:
+    image: nginx # Используем образ Nginx
+    volumes:
+      - ./nginx_config:/etc/nginx/conf.d # Подключаем директорию с конфигурационными файлами Nginx
+    ports:
+      - "8080:80" # Пробрасываем порт 8080 хостовой машины на порт 80 контейнера
+    networks:
+      - mynetwork
+
+  database:
+    image: mysql # Используем образ MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql # Монтируем директорию для хранения данных MySQL как docker volume
+    environment:
+      MYSQL_ROOT_PASSWORD: example # Устанавливаем пароль для root пользователя MySQL
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge # Используем сеть типа bridge с заданным IP-диапазоном
+
+volumes:
+  mysql_data: # Описываем docker volume для хранения данных MySQL
